@@ -33,11 +33,22 @@ if (params.has('config')) {
 let HOMESERVER_URL = "https://matrix-client.matrix.org"
 let HOMESERVER_URL_PROXY = "https://matrix-sticker.moeworld.top"
 
-const makeThumbnailURL = mxc => `${HOMESERVER_URL_PROXY}/_matrix/media/v3/thumbnail/${mxc.slice(6)}?height=128&width=128&method=scale`
+// 检测是否是 Android 的 Element 客户端
+const isAndroidElement = navigator.userAgent.match(/Android/)
 
-// We need to detect iOS webkit because it has a bug related to scrolling non-fixed divs
-// This is also used to fix scrolling to sections on Element iOS
+// 根据设备类型选择 URL
+const makeThumbnailURL = mxc => {
+  const baseURL = isAndroidElement ? HOMESERVER_URL_PROXY : HOMESERVER_URL
+  return `${baseURL}/_matrix/media/v3/thumbnail/${mxc.slice(6)}?height=128&width=128&method=scale`
+};
+
+// 原始的URL
+// const makeThumbnailURL = mxc => `${HOMESERVER_URL_PROXY}/_matrix/media/v3/thumbnail/${mxc.slice(6)}?height=128&width=128&method=scale`
+
+// 需要检测 iOS WebKit 因为它有一个与滚动非固定 div 相关的 bug
+// 这个也用于修复 Element iOS 中的滚动到页面某部分的问题
 const isMobileSafari = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)
+
 
 const supportedThemes = ["light", "dark", "black"]
 
