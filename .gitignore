@@ -1,6 +1,7 @@
 # 晓空的环境
 /build
 /venv
+/protect.py
 
 # 原始忽略配置
 /.idea
