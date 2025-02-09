@@ -1,8 +1,12 @@
 """
-参加https://blog.arisa.moe/blog/2023/230114-matrix-qq-wechat-bridge/#_5
+参见https://blog.arisa.moe/blog/2023/230114-matrix-qq-wechat-bridge/#_5
 用于给homeserver设置定期删除媒体后，保护贴纸不被删除
 此文件不应被公共仓库的GIT提交和追踪
 请注意修改其中的 Bearer token 和 matrix.moeworld.top 以及 os.walk() 的路径
+
+Admin API文档 https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html
+返回{}代表执行成功
+
 晓空 2025.2.9
 """
 
