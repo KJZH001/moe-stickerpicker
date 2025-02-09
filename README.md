@@ -1,6 +1,11 @@
 # Maunium sticker picker
 A fast and simple Matrix sticker picker widget. Tested on Element Web, Android & iOS.
 
+# 导入来自TG的贴纸
+```
+sticker-import <pack_url>
+```
+
 ## Discussion
 Matrix room: [`#stickerpicker:maunium.net`](https://matrix.to/#/#stickerpicker:maunium.net)
 
