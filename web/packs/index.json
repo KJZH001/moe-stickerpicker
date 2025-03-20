@@ -2,7 +2,8 @@
   "packs": [
     "Mare_by_WuMingv2Bot.json",
     "MoeSakura_sticker_0_by_moe_sticker_bot.json",
-    "Mieru_by_WuMingv2Bot.json"
+    "Mieru_by_WuMingv2Bot.json",
+    "ManyHuaji.json"
   ],
   "homeserver_url": "https://matrix.moeworld.top"
 }
