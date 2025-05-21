@@ -33,6 +33,8 @@ if (params.has('config')) {
 let HOMESERVER_URL = "https://matrix-client.matrix.org"
 let HOMESERVER_URL_PROXY = "https://matrix-sticker.moeworld.top"
 
+// 适用于v1和v2
+/*
 // 检测是否是 Android 的 Element 客户端
 const isAndroidElement = navigator.userAgent.match(/Android/)
 
@@ -44,10 +46,15 @@ const makeThumbnailURL = mxc => {
 
 // 原始的URL
 // const makeThumbnailURL = mxc => `${HOMESERVER_URL_PROXY}/_matrix/media/v3/thumbnail/${mxc.slice(6)}?height=128&width=128&method=scale`
+*/
+//适用于v3，我们代理了所有的贴纸请求，所以不用分设备了
+const makeThumbnailURL = mxc => `${HOMESERVER_URL_PROXY}/_matrix/media/v3/thumbnail/${mxc.slice(6)}?height=128&width=128&method=scale`
 
 // 需要检测 iOS WebKit 因为它有一个与滚动非固定 div 相关的 bug
 // 这个也用于修复 Element iOS 中的滚动到页面某部分的问题
 const isMobileSafari = navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)
+
+
 
 
 const supportedThemes = ["light", "dark", "black"]
